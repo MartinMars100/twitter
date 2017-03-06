@@ -795,7 +795,8 @@ em {
 
 /* line 63, ../sass/circle/core/_type.sass */
 a {
-  color: #1da1f2;
+  /*color: black;*/
+  color: black;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
@@ -804,7 +805,8 @@ a {
 }
 /* line 66, ../sass/circle/core/_type.sass */
 a:hover {
-  color: #0c85d0;
+  /*color: #0c85d0;*/
+  color: black;
 }
 
 /* line 4, ../sass/circle/core/_buttons.sass */
@@ -825,9 +827,10 @@ input[type="button"] {
   box-sizing: border-box;
   line-height: 1;
   text-decoration: none;
-  color: #1da1f2;
+  /*color: black;*/
+  color: black;
   background: none;
-  box-shadow: 0 0 0 2px #1da1f2 inset;
+  box-shadow: 0 0 0 2px lightgray inset;
   position: relative;
   -webkit-transition: 0.2s;
   -moz-transition: 0.2s;
@@ -859,7 +862,8 @@ button:hover svg,
 input[type="submit"]:hover svg,
 input[type="reset"]:hover svg,
 input[type="button"]:hover svg {
-  fill: #0c85d0;
+  /*fill: #0c85d0;*/
+  fill: black;
 }
 /* line 34, ../sass/circle/core/_buttons.sass */
 .button svg,
@@ -867,7 +871,7 @@ button svg,
 input[type="submit"] svg,
 input[type="reset"] svg,
 input[type="button"] svg {
-  fill: #1da1f2;
+  fill: black;
   width: auto;
   height: 13px;
   position: relative;
@@ -916,7 +920,8 @@ input[type="reset"].button-primary,
 input[type="button"].button-primary,
 button.button-primary {
   color: #fff;
-  background-color: #1da1f2;
+  background-color: #800000;
+  /*background-color: #800000;*/
 }
 /* line 68, ../sass/circle/core/_buttons.sass */
 .button.button-primary svg, input[type="submit"].button-primary svg,
@@ -935,7 +940,8 @@ input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus,
 button.button-primary:hover,
 button.button-primary:focus {
-  background-color: #0c85d0;
+  /*background-color: #0c85d0;*/
+  background-color: black;
 }
 
 /* line 84, ../sass/circle/core/_buttons.sass */
@@ -989,7 +995,8 @@ input[type="reset"].button-text:focus,
 input[type="button"].button-text:focus,
 button.button-text:hover,
 button.button-text:focus {
-  color: #1da1f2;
+  /*color: black;*/
+  color: black;
 }
 
 /* line 4, ../sass/circle/core/_forms.sass */
@@ -1010,7 +1017,8 @@ textarea {
 }
 /* line 18, ../sass/circle/core/_forms.sass */
 textarea:focus {
-  border-color: #1da1f2;
+  /*border-color: black;*/
+  border-color: black;
 }
 
 /* line 24, ../sass/circle/core/_forms.sass */
@@ -1053,7 +1061,8 @@ input[type="email"]:-ms-input-placeholder, input[type="number"]:-ms-input-placeh
 }
 /* line 48, ../sass/circle/core/_forms.sass */
 input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, select:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="password"]:focus {
-  border-color: #1da1f2;
+  /*border-color: black;*/
+  border-color: black;
 }
 
 /* line 51, ../sass/circle/core/_forms.sass */
@@ -1068,7 +1077,8 @@ select {
 }
 /* line 60, ../sass/circle/core/_forms.sass */
 select:focus {
-  border-color: #1da1f2;
+  /*border-color: black;*/
+  border-color: black;
 }
 /* line 62, ../sass/circle/core/_forms.sass */
 .circle--select select {
@@ -1097,7 +1107,8 @@ select:focus {
 }
 /* line 84, ../sass/circle/core/_forms.sass */
 .circle--select.focus {
-  border-color: #1da1f2;
+  /*border-color: black;*/
+  border-color: black;
 }
 /* line 86, ../sass/circle/core/_forms.sass */
 .circle--select .chevron {
@@ -1106,7 +1117,8 @@ select:focus {
   right: 20px;
   height: 14px;
   margin-top: -7px;
-  fill: #1da1f2;
+  /*fill: black;*/
+  fill: black;
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
@@ -1463,7 +1475,8 @@ li:only-child .circle--clone--remove {
 
 /* line 2, ../sass/circle/components/_headers.sass */
 .circle--header {
-  background: #1da1f2;
+  /*background: black;*/
+  background: black;
   padding: 20px 0;
   margin-bottom: 30px;
 }
@@ -1621,7 +1634,8 @@ li:only-child .circle--clone--remove {
 }
 /* line 20, ../sass/circle/components/_tables.sass */
 .clickable-row h3 {
-  color: #1da1f2;
+  /*color: black;*/
+  color: black;
 }
 
 /* line 2, ../sass/circle/components/_forms.sass */
@@ -2241,7 +2255,7 @@ body {
 }
 /* line 87, ../sass/global.sass */
 a:hover .app--avatar {
-  box-shadow: 0 0 0 4px #1da1f2 inset;
+  box-shadow: 0 0 0 4px black inset;
 }
 /* line 89, ../sass/global.sass */
 .app--avatar img {
@@ -2332,7 +2346,7 @@ a:hover .app--avatar {
 }
 /* line 151, ../sass/global.sass */
 .app--tweet--author:hover, .app--user--author:hover {
-  color: #1da1f2;
+  color: blac;
 }
 /* line 153, ../sass/global.sass */
 .app--tweet--author h4, .app--user--author h4 {
@@ -2360,11 +2374,13 @@ a:hover .app--avatar {
 }
 /* line 168, ../sass/global.sass */
 .app--tweet--actions a:hover, .app--user--actions a:hover {
-  color: #1da1f2;
+  /*color: black;*/
+  color: black;
 }
 /* line 170, ../sass/global.sass */
 .app--tweet--actions a:hover svg, .app--user--actions a:hover svg {
-  fill: #1da1f2;
+  /*fill: black;*/
+  fill: black;
 }
 /* line 172, ../sass/global.sass */
 .app--tweet--actions a:hover .tooltip, .app--user--actions a:hover .tooltip {
@@ -2496,11 +2512,12 @@ a:hover .app--avatar {
 }
 /* line 265, ../sass/global.sass */
 .app--message--me .app--message--text {
-  background: #1da1f2;
+  /*background: black;*/
+  background: black;
 }
 /* line 267, ../sass/global.sass */
 .app--message--me .app--message--text:after {
-  background: #1da1f2 url("../images/message-tail-me.svg") no-repeat;
+  background: black url("../images/message-tail-me.svg") no-repeat;
   left: auto;
   right: -8px;
 }

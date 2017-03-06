@@ -1,16 +1,12 @@
-'use strict';
-console.log('log h');
 // Load Modules
 var express    = require('express'),      // Loads the Express module
     bodyParser = require('body-parser'),  // Loads the Body-Parser module
     // pug        = require('pug'),       // Loads the PUG templating engine for Express
     Twit       = require('twit'),         // To interact with Twitter API
     config     = require('./config'),     // Object literal containing Twitter                                      //API access key and token
-    moment = require('moment'),
-    fromNow = require('fromnow');
+    moment = require('moment');
 
-var object = new Object(),
-    profileImg,
+var object = {}, //new Object literal notation
     tweets = {},
     messages = {},
     page,
@@ -22,28 +18,23 @@ var T = new Twit(config),
     app  = express(),
     port = process.env.PORT;
 
-var params = {
+var params = {         //Parameters are used in our calls to Twitter
   screen_name: 'MartyKunsman',
   count: 5
 };
 
-T.get('users/show', params, gotBanner); //This retrieves the banner 
+T.get('users/show', params, gotBanner); //  Call to twitter
 
-function gotBanner(err, data, res){
+function gotBanner(err, data, res){ // For background banner on header
   if (err) {
     errorMsg = "twitter-fail"; // This will be caught on app.get route
   } 
   object.banner = data;
   banner = object.banner.profile_banner_url;
-  // console.log(object.banner.status.)
-  // console.log(object.banner);
-  // banner = object.banner.status.profileAttrs.profile_banner_url;
-  // console.log(object.banner.sizes.web.url);
-  // console.log(banner);
   T.get('account/settings', params, gotAccount); //This retrieves hd screenname
 }
 
-function gotAccount(err, data, res){
+function gotAccount(err, data, res){  // Used for screen name
   if (err) {
     errorMsg = "twitter-fail"; // This will be caught on app.get route
   }  
@@ -52,7 +43,7 @@ function gotAccount(err, data, res){
   T.get('statuses/user_timeline',params,gotDataTweets); //get tweets
 }
     
-function gotDataTweets(err, data, response){ 
+function gotDataTweets(err, data, response){  // Our lists of tweets
   if (err) {
     errorMsg = "twitter-fail"; // This will be caught on app.get route
   } 
@@ -83,14 +74,14 @@ function gotDataMessages(err, data, response){ // get most recent 5 direct messa
                                                                   // credentials
 }
 
-function gotDataCredentials(err, data, response) {
+function gotDataCredentials(err, data, response) { //Used for user avatar/image
   if (err) {
     errorMsg = "twitter-fail"; // This will be caught on app.get route
   } 
   object.credentials = data;
 }
 
-function getLapsedTweets(tweets){
+function getLapsedTweets(tweets){ // Shows when tweets were sent as 2hrs ago/ 1 day ago
   var fmt = 'ddd MMM DD hh:mm:ss Z YYYY';
 	for (var i = 0; i < tweets.length; i++) {
 		tweets[i].created_at = (moment(tweets[i].created_at, fmt).fromNow());
@@ -98,7 +89,7 @@ function getLapsedTweets(tweets){
 	return tweets;
 }
 
-function getLapsedMessages(messages){
+function getLapsedMessages(messages){ //Shows when messages were sent as 1hr ago/ 1 day ago
   var fmt = 'ddd MMM DD hh:mm:ss Z YYYY';
 	for (var i = 0; i < messages.length; i++) {
 		messages[i].sender.created_at = (moment(messages[i].sender.created_at, fmt).fromNow());
@@ -124,7 +115,7 @@ app.get('/', function(req, res) {
   if (errorMsg === 'twitter-fail') { //If errMsg variable has an error message 
     res.redirect('/error');          // then redirect to /error      
   }
-    res.render('index.jade',{data: object, //Show our index page
+    res.render('index.pug',{data: object, //Show our index page
                 banner: banner});
 });
 
@@ -141,7 +132,7 @@ app.post('/', function(req, res)  {
 	});
 });
 
-app.get('/update', function(req, res) {
+app.get('/update', function(req, res) { //Update route is run after user posts a new tweet
   page = res;
   T.get('statuses/user_timeline', params, function(error, data, response) {
     if (error) {
@@ -151,11 +142,12 @@ app.get('/update', function(req, res) {
     tweets = object.tweets;
     tweets = getLapsedTweets(tweets); // pass tweets to time lapsed function
     object.tweets = tweets;   // Tweets created_at value is 1 hr ago/1 day ago
-    res.render('index.jade',{data: object});
+    res.render('index.pug',{data: object,
+                             banner: banner});
   });
 });
 
-app.get('/error', function(req, res) {
+app.get('/error', function(req, res) { //error route is run when a connection error occurs
 	var message;
 	if (errorMsg === 'twitter-fail') {
 		message = 'Couldn\'t connect with twitter.com';
