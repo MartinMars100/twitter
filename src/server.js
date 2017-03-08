@@ -38,7 +38,7 @@ function gotAccount(err, data, res){  // Used for screen name
   if (err) {
     errorMsg = "twitter-fail"; // This will be caught on app.get route
   }  
-  console.log('log gotAccount function');
+  
   object.account = data;
   T.get('statuses/user_timeline',params,gotDataTweets); //get tweets
 }
